@@ -1,6 +1,13 @@
+import  LoginForm  from "./LoginForm"
+import { useSelector } from "react-redux"
+import { Redirect } from "react-router-dom"
+import "./LoginForm.css"
+
 const LoginFormPage = () => {
-    return (
-        <h1>This is the login page</h1>
+    const currentUser = useSelector(state => state.session.user)
+
+    return currentUser ?  (<Redirect to="/"/>) : (
+        <LoginForm></LoginForm>
     )
 }
 
