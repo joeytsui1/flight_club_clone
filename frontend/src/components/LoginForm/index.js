@@ -1,12 +1,12 @@
 import  LoginForm  from "./LoginForm"
 import { useSelector } from "react-redux"
-import { Redirect } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 import "./LoginForm.css"
 
 const LoginFormPage = () => {
     const currentUser = useSelector(state => state.session.user)
 
-    return currentUser ?  (<Redirect to="/"/>) : (
+    return currentUser ?  (<Navigate to="/"/>) : (
         <LoginForm></LoginForm>
     )
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import  SignUpForm  from "./SignUpForm";
 import './SignUpForm.css'
@@ -7,7 +7,7 @@ import './SignUpForm.css'
 const SignUpFormPage = () => {
     const currentUser = useSelector(state => state.session.user)
 
-    return currentUser ? (<Redirect to="/"/>) : (
+    return currentUser ? (<Navigate to="/"/>) : (
         <div className="signup-page">
             <SignUpForm></SignUpForm>
         </div>

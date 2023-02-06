@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/session";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom"
+
 
 const IndexPage = () => {
     const dispatch = useDispatch()
@@ -15,7 +17,7 @@ const IndexPage = () => {
         e.preventDefault()
         
         return (
-            <Redirect to="/login"/>
+            <Navigate to={'/login'}/>
         )
     }
     const loginButton = (
