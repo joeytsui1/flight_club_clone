@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: Arena_Goods_production
-  username: Arena_Goods
-  password: <%= ENV["ARENA_GOODS_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
