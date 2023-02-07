@@ -11,7 +11,6 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        debugger
         setErrors([]);
         return dispatch(sessionActions.login({ email, password }))
 
@@ -30,7 +29,6 @@ const LoginForm = () => {
     }
 
     const errorMessage =  errors.map(error => <li key={error}>{error}</li>) 
-    debugger
     const handleClick = (e) => {
         e.preventDefault()
         dispatch(sessionActions.login({email: "demo@aa.io", password: "password"}))
