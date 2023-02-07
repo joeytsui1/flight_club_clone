@@ -8,6 +8,7 @@ body{
     justify-content: center;
     flex-direction: column;
     margin: auto;
+    padding-bottom: 300px;
 }
 
 .login-header {

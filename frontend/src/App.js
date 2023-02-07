@@ -2,6 +2,7 @@ import IndexPage from "./components/IndexPage"
 import SignUpFormPage from "./components/SignUpForm";
 import LoginFormPage from "./components/LoginForm";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
 
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/signup" element={<SignUpFormPage/>}></Route>
         <Route path="/login" element={<LoginFormPage/>}></Route>
       </Routes>   
+      <Footer></Footer>
     </>
   );
 }

@@ -16,7 +16,7 @@ const LoginForm = () => {
         return dispatch(sessionActions.login({ email, password }))
 
             .catch(async (data) => {
-                debugger
+                console.log(data)
                 // let data;
                 // try {
                 //     data = await response.clone().json();
@@ -29,6 +29,8 @@ const LoginForm = () => {
             });
     }
 
+    const errorMessage =  errors.map(error => <li key={error}>{error}</li>) 
+    debugger
     const handleClick = (e) => {
         e.preventDefault()
         dispatch(sessionActions.login({email: "demo@aa.io", password: "password"}))
@@ -46,7 +48,7 @@ const LoginForm = () => {
                         placeholder="Email Address*"
                     />
                     <br></br>
-                    <ul className='login'>{errors.map(error => <li key={error}>{error}</li>)}</ul>
+                    <ul className='login'>{errorMessage}</ul>
                     <br></br>
                     <input
                         className="password-input"
