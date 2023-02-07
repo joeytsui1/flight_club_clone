@@ -7,13 +7,32 @@ const LoginForm = () => {
     const dispatch = useDispatch()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [errors, setErrors] = useState([])
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        debugger
+        setErrors([]);
+        return dispatch(sessionActions.login({ email, password }))
 
-        dispatch(sessionActions.login({ email, password }))
+            .catch(async (data) => {
+                debugger
+                // let data;
+                // try {
+                //     data = await response.clone().json();
+                // } catch {
+                //     data = await response.text();
+                // }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                // else setErrors([response.statusText]);
+            });
     }
 
+    const handleClick = (e) => {
+        e.preventDefault()
+        dispatch(sessionActions.login({email: "demo@aa.io", password: "password"}))
+    }
     return (
         <>
             <div className="login-form">
@@ -27,6 +46,8 @@ const LoginForm = () => {
                         placeholder="Email Address*"
                     />
                     <br></br>
+                    <ul className='login'>{errors.map(error => <li key={error}>{error}</li>)}</ul>
+                    <br></br>
                     <input
                         className="password-input"
                         type="password"
@@ -35,8 +56,12 @@ const LoginForm = () => {
                         placeholder="Password*"
                     />
                     <br></br>
+                    <ul className='login'>{errors.map(error => <li key={error}>{error}</li>)}</ul>
+                    <br></br>
                     <button className="login-button">Login</button>
+                    <button className="demo-user-button" onClick={handleClick}>Demo</button>
                 </form>
+        
                 <br/>
                 <div className="extra-links-login">
                     <a className="login-forgotpassword" href="#">Forgot Password?</a>

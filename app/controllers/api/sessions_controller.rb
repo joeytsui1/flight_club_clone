@@ -1,7 +1,4 @@
 class Api::SessionsController < ApplicationController
-    before_action :require_logged_in, only: [:create]
-    before_action :require_logged_in, only: [:destroy]
-
     def show
         if current_user
             @user = current_user
@@ -12,6 +9,7 @@ class Api::SessionsController < ApplicationController
     end
 
     def create
+        debugger
         email = params[:email]
         password = params[:password]
         @user = User.find_by_credentials(email, password)
@@ -19,6 +17,7 @@ class Api::SessionsController < ApplicationController
                 login!(@user)
                 render "api/users/show"
             else
+                debugger
                 render json: { errors: ["Invalid credentials"] }, status: 422
             end
     end

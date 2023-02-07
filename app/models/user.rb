@@ -4,6 +4,8 @@
 #
 #  id              :bigint           not null, primary key
 #  email           :string           not null
+#  first           :string           not null
+#  last            :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
@@ -11,7 +13,7 @@
 #
 class User < ApplicationRecord
     has_secure_password
-    validates :email, :password_digest, :session_token, presence: true
+    validates :email, :password_digest, :session_token, :first, :last, presence: true
     validates :email, :session_token, uniqueness: true
     validates :email, length: { in: 3..255 }, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :password, length: { minimum: 6 }, allow_nil: true

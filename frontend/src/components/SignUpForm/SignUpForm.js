@@ -6,11 +6,13 @@ const SignUpForm = () => {
     const dispatch = useDispatch()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [first, setFirst] = useState("")
+    const [last, setLast] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        dispatch(sessionActions.signup({email, password}))
+        dispatch(sessionActions.signup({ email, first, last, password}))
     }
     return (
         <>
@@ -23,15 +25,15 @@ const SignUpForm = () => {
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    // value={firstName}
-                    // onChange={e => { setFirstName(e.target.value) }}
+                    value={first}
+                    onChange={e => { setFirst(e.target.value) }}
                     placeholder="First Name*"
                 />
                 <br></br>
                 <input
                     type="text"
-                    // value={firstName}
-                    // onChange={e => { setFirstName(e.target.value) }}
+                    value={last}
+                    onChange={e => { setLast(e.target.value) }}
                     placeholder="Last Name*"
                 />
                 <br></br>
@@ -49,12 +51,12 @@ const SignUpForm = () => {
                  placeholder = "Password*"
                 />
                 <br></br>
-                <input
+                {/* <input
                     type="text"
                     // value={firstName}
                     // onChange={e => { setFirstName(e.target.value) }}
                     placeholder="Confirm Password*"
-                />
+                /> */}
                 <br></br>
                 <div>
                     <p className="policy">By clicking "Register", you agree to our <a href="#">Terms and condition</a> and <a href="#">Privacy Policy</a>

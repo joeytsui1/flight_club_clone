@@ -31,7 +31,8 @@ input {
     position: relative;
 }
 
-button {
+
+.signup-button {
     position: relative;
     font-size: 0.9rem;
     font-family: ProximaNova, sans-serif;
@@ -47,9 +48,6 @@ button {
     background-color: rgb(19, 19, 19);
     letter-spacing: 0.05em;
     cursor: pointer;
-}
-
-.signup-button {
     margin-top: 10px;
     margin-bottom: 20px;
 }
